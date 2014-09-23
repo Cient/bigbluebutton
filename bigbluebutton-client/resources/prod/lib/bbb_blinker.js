@@ -1,5 +1,6 @@
 function setTitle(title){
-    document.title= "BigBlueButton - " + title;
+   //document.title= "BigBlueButton - " + title;
+   document.title= "Cient - " + title;
 }
 
 var i = 1;

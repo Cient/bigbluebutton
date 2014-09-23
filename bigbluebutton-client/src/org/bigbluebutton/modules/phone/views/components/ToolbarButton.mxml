@@ -24,9 +24,9 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 	icon="{phoneIcon}" click="startPhone()"
 	mouseOver = "mouseOverHandler(event)"
 	mouseOut = "mouseOutHandler(event)"
-    height="24"
 	toolTip="{ResourceUtil.getInstance().getString('bbb.toolbar.phone.toolTip.start')}"
-	implements="org.bigbluebutton.common.IBbbToolbarComponent">
+	implements="org.bigbluebutton.common.IBbbToolbarComponent"
+	styleName="mainToolBarLeftButtons">
 	
 	<mate:Listener type="{BBBEvent.JOIN_VOICE_CONFERENCE}" method="handleBBBJoinConferenceEvent"/>
 	<mate:Listener type="{BBBEvent.MIC_SETTINGS_CLOSED}" method="handleMicSettingsClosedEvent"/>

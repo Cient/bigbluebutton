@@ -27,7 +27,7 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 		<![CDATA[
 			import mx.controls.Button;
 
-			static public const BUTTON_SIZE:int = 20;
+			static public const BUTTON_SIZE:int = 22;
 		]]>
 	</mx:Script>
 </mx:Button>

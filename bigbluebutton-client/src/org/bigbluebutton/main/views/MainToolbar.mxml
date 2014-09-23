@@ -196,7 +196,7 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 					// Confirm logout using built-in alert
 					var alert:Alert = Alert.show(ResourceUtil.getInstance().getString('bbb.logout.confirm.message'), ResourceUtil.getInstance().getString('bbb.logout.confirm.title'), Alert.YES | Alert.NO, this, alertLogout, null, Alert.YES);
 					
-					var newX:Number = langSelector.x + langSelector.width/2;
+					var newX:Number = langSelector.x - 15;
 					var newY:Number = btnLogout.y + btnLogout.height + 5;
 												
 					alert.validateNow();
@@ -230,7 +230,7 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 			
 			private function handleAddToolbarButtonEvent(event:ToolbarButtonEvent):void {
 				// Find out how to import accessibility into custom components; even though the ToolbarButtons are buttons, they don't seem to have a tabIndex
-				if (event.location == ToolbarButtonEvent.TOP_TOOLBAR) {
+				if (event.location == ToolbarButtonEvent.TOP_TOOLBAR && event.module != "Layout") {
 					var index:int;
 					var added:int = 0;
 					//*var localButton:UIComponent;
@@ -253,6 +253,9 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 					// Won't work quite like this: addedBtns.addChildAt(event.button as UIComponent, index);					
 					numButtons++;
 					realignButtons();
+				}else if (event.module == "Layout"){
+					addedLayout.addChild(event.button as UIComponent);
+					numButtons++;			
 				}
 			}
 			
@@ -350,6 +353,7 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 	<mx:Spacer width="50%"/>
     <mx:Label id="meetingNameLbl" styleName="meetingNameLabelStyle" />
     <mx:Spacer width="50%"/>
+	<mx:HBox id="addedLayout" />
 	<views:LanguageSelector id="langSelector" 
 							visible="false" 
 							tabIndex="{baseIndex+numButtons+11}"
@@ -361,12 +365,12 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 	<mx:Button id="shortcutKeysBtn" label="{ResourceUtil.getInstance().getString('bbb.mainToolbar.shortcutBtn')}" styleName="shortcutButtonStyle"
              click="onShortcutButtonClick()" height="22" 
              toolTip="{ResourceUtil.getInstance().getString('bbb.mainToolbar.shortcutBtn.toolTip')}" 
-             tabIndex="{baseIndex+numButtons+12}" />
+             tabIndex="{baseIndex+numButtons+14}" />
 	<mx:LinkButton id="helpBtn" visible="{showHelpBtn}" label="?" click="onHelpButtonClicked()" height="22" 
-                   styleName="helpLinkButtonStyle" tabIndex="{baseIndex+numButtons+13}" 
+                   styleName="helpLinkButtonStyle" tabIndex="{baseIndex+numButtons+15}" 
                    toolTip="{ResourceUtil.getInstance().getString('bbb.mainToolbar.helpBtn')}" 
 				   accessibilityDescription="{ResourceUtil.getInstance().getString('bbb.mainToolbar.helpBtn')}"/>
 	<mx:Button label="" id="btnLogout" styleName="logoutButtonStyle"
                  toolTip="{ResourceUtil.getInstance().getString('bbb.mainToolbar.logoutBtn.toolTip')}" right="10" click="confirmLogout()" height="22"
-                 tabIndex="{baseIndex+numButtons+14}" />
+                 tabIndex="{baseIndex+numButtons+16}" />
 </mx:ApplicationControlBar>

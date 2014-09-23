@@ -25,10 +25,10 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 		   click="openPublishWindow()" creationComplete="init()" 
 		   mouseOver = "mouseOverHandler(event)"
 		   mouseOut = "mouseOutHandler(event)"
-           height="24"
 		   toolTip="{this.selected ? ResourceUtil.getInstance().getString('bbb.toolbar.video.toolTip.stop') : ResourceUtil.getInstance().getString('bbb.toolbar.video.toolTip.start')}"
 		   visible="false"
-		   implements="org.bigbluebutton.common.IBbbToolbarComponent">
+		   implements="org.bigbluebutton.common.IBbbToolbarComponent"
+		   styleName="mainToolBarLeftButtons">
 
 	<mate:Listener type="{ShortcutEvent.SHARE_WEBCAM}" method="remoteClick" />
 	<mate:Listener type="{BBBEvent.CAM_SETTINGS_CLOSED}" method="handleCamSettingsClosedEvent"/>

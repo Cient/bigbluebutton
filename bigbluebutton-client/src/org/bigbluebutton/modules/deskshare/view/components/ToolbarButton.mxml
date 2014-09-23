@@ -27,7 +27,8 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 	click="startDeskShare()"
 	mouseOver = "mouseOverHandler(event)"
 	mouseOut = "mouseOutHandler(event)"
-	implements="org.bigbluebutton.common.IBbbToolbarComponent">
+	implements="org.bigbluebutton.common.IBbbToolbarComponent"
+	styleName="mainToolBarLeftButtons">
 	
 	<mate:Listener type="{ShortcutEvent.SHARE_DESKTOP}" method="remoteClick" />
 	<mate:Listener type="{ShareWindowEvent.CLOSE}" method="closeFocus" />
