@@ -23,7 +23,7 @@ function addAlert(message){
 
 function determineModifier()
 {
-	var browser = determineBrowser();
+	var browser = determineBrowser()[0];
 	var modifier;
 	if (browser == "Firefox"){
 		modifier = "control+";
@@ -45,7 +45,7 @@ function determineModifier()
 
 function determineGlobalModifier()
 {
-	var browser = determineBrowser();
+	var browser = determineBrowser()[0];
 	var modifier;
 	if (browser == "Firefox"){
 		modifier = "control+shift+";
@@ -125,5 +125,10 @@ function determineBrowser()
 		majorVersion = parseInt(navigator.appVersion,10);
 	}
 	
+<<<<<<< .merge_file_qHIJoM
 	return browserName;
 }
+=======
+	return [browserName, majorVersion];
+}
+>>>>>>> .merge_file_5TaxEM
